@@ -14,12 +14,13 @@ function delete($id){
    return pg_query($connexion,$sql);
 }
 
-function add($libelle,$quantite,$prix){
+function add($libelle, $quantite, $prix, $idcat) {
     global $connexion;
-    $sql ="INSERT INTO produit (libelle,qt,pu,idcat) values
-     ('$libelle',$quantite,$prix,1)";
-   return pg_query($connexion,$sql);
+    $sql = "INSERT INTO produit (libelle, qt, pu, idcat) 
+            VALUES ('$libelle', $quantite, $prix, $idcat)";
+    return pg_query($connexion, $sql);
 }
+
 
 function update($id,$libelle,$quantite,$prix){
     global $connexion;
